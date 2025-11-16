@@ -7,6 +7,23 @@ st.set_page_config(page_title="California Housing Price Prediction", layout="cen
 st.title("🏠 California Housing Price Prediction")
 st.write("Select a model and enter the house features to get predictions.")
 
+# Short instructions
+st.subheader("📋 Quick Guide")
+
+st.write("""
+### 🔢 Input Guidelines:
+- **MedInc**: Income in $10,000s (e.g., $50,000 → 5.0)
+- **HouseAge**: House age in years (e.g., 25 years → 25)
+- **AveRooms**: Avg rooms per home (e.g., 5 rooms → 5.0)
+- **AveBedrms**: Avg bedrooms (e.g., 2.5 bedrooms → 2.5)
+- **Population**: Area population (e.g., 1500 people → 1500)
+- **AveOccup**: People per household (e.g., 3 people → 3.0)
+- **Latitude**: 32.0 to 42.0 (e.g., 34.05)
+- **Longitude**: -125.0 to -114.0 (e.g., -118.25)
+
+**Models Available:** Linear Regression, Random Forest, SVM
+""")
+
 # ----------------------------
 # Load models dynamically
 # ----------------------------
@@ -49,3 +66,13 @@ if st.button("Predict"):
 
     st.success(f"🏡 **Predicted Median House Value:** ${prediction * 100000:.2f}")
     st.info(f"Using Model: **{model_choice}**")
+
+
+# Footer
+st.markdown("---")
+st.markdown(
+    "<div style='text-align: center; color: #666;'>"
+    "Built with ❤️ using Streamlit | California Housing Price Predictor"
+    "</div>",
+    unsafe_allow_html=True
+)
